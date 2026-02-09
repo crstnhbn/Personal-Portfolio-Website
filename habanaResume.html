@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-color: #4a2f3b; /* deep rose for text on light background */
+            --primary-color: #e88fb3; /* soft pink accent */
+            --secondary-color: #ffd1e1; /* very light pink */
+        }
+
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 50%, #ffd6e7 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            width: 200px;
+            height: 200px;
+            border: 5px solid var(--secondary-color);
+            margin: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .habana-description,
+        .habana-skill-item {
+            margin-top: 1rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .habana-item-title {
+            margin-top: 1rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .habana-title {
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 16px;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(232, 143, 179, 0.65);
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .habana-item-Pretitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .habana-item-subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .habana-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 30px rgba(233, 143, 179, 0.25);
+            gap: 3rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .habana-container {
+                width: 100%;
+                grid-template-columns: 1fr;
+                padding: 3rem;
+                gap: 7rem;
+            }
+        }
+
+        .habana-profile {
+            grid-column: 1/-1;
+        }
+
+        .habana-left-container,
+        .habana-right-container {
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        .habana-footer-container {
+            grid-column: 1/-1;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            margin-right: 2rem;
+            display: flex;
+            flex-direction: row;
+            gap: 5rem;
+        }
+
+        .habana-footer-container>div {
+            flex: 1;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .habana-profile {
+                margin-bottom: 0;
+            }
+
+            .habana-footer-container {
+                flex-direction: column;
+            }
+        }
+
+        .habana-profile-container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .habana-profileImg {
+            width: 250px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+
+        .habana-fname {
+            color: var(--text-color);
+            font-weight: 400;
+            font-size: clamp(2rem, 8vw, 4rem);
+            text-transform: uppercase;
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: -1.8rem;
+        }
+
+        .habana-lname {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: clamp(2.5rem, 15vw, 7rem);
+            text-transform: uppercase;
+            display: block;
+            letter-spacing: 3px;
+        }
+
+        .habana-profile-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .habana-profile-container {
+                flex-direction: column;
+            }
+        }
+
+        .habana-skill-list {
+            margin-top: 1rem;
+            margin-left: 2rem;
+            list-style: none;
+        }
+
+        .habana-skill-list .habana-skill-item {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(232, 143, 179, 0.35);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            box-shadow: 0 2px 8px rgba(233, 143, 179, 0.15);
+            display: inline-block;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .habana-left-container {
+            margin-left: 1rem;
+        }
+
+        .habana-right-container {
+            margin-right: 1rem;
+        }
+
+        .habana-ref-item {
+            margin-left: 2rem;
+        }
+
+        .habana-ref-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .habana-edu-item,
+        .habana-award-item,
+        .habana-exp-item,
+        .habana-seminar-item {
+            margin-top: 2rem;
+        }
+
+        .habana-interest-item {
+            margin-top: 2rem;
+            display: flex;
+            align-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .habana-interest-list {
+            margin-left: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .habana-interest-item svg {
+            width: 2rem;
+        }
+        .habana-interest-list i {
+            color: var(--primary-color) !important;
+        }
+
+        .habana-social-items {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: 1.5rem;
+        }
+
+        .habana-social-list {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: 400;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .habana-social-list:hover {
+            color: #ffffff;
+            background: var(--primary-color);
+        }
+
+        .habana-social-list svg {
+            width: 2rem;
+        }
+
+        hr {
+            grid-column: 1/-1;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        @media only screen and (max-width: 768px) {
+            hr {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="habana-container">
+        <div class="habana-profile">
+            <div class="habana-profile-container">
+                <div class="habana-profileImg">
+                    <img src="cristine.jpg" alt="Cristine Joy Habana">
+                </div>
+                <div class="habana-profile-info">
+                    <h1 class="habana-profile-name">
+                        <span class="habana-fname">CRISTINE JOY</span><br>
+                        <span class="habana-lname">HABANA</span>
+                    </h1>
+                    <p class="habana-profile-title"><b>ENTRY-LEVEL FRONTEND DEVELOPER</b></p>
+                    <p class="habana-description">
+                        Aspiring frontend developer with a focus on building responsive, accessible websites using
+                        modern web technologies. Quick learner with a passion for clean UI and modern web practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="habana-left-container">
+            <div class="habana-skills">
+                <h3 class="habana-title"><i class="fa-solid fa-star" style="color: #2f2f2f;"></i> EXPERTISE</h3><br>
+                <ul class="habana-skill-list">
+                    <li class="habana-skill-item">HTML & CSS</li>
+                    <li class="habana-skill-item">Microsoft Office</li>
+                    <li class="habana-skill-item">Canva</li>
+                    <li class="habana-skill-item">Capcut</li>
+                    <li class="habana-skill-item">GitHub</li>
+                </ul>
+            </div><br><br>
+
+            <div class="habana-reference">
+                <h3 class="habana-title"><i class="fa-solid fa-thumbtack"
+                        style="color:#2f2f2f; transform:rotate(45deg);"></i> REFERENCE</h3><br><br>
+                <div class="habana-ref-item">
+                    <h4 class="habana-ref-name">Ms. Deserie Robles</h4>
+                    <p class="habana-description">
+                        Instructor - BPC<br>
+                        Calumpit, Bulacan<br>
+                        +639 ** *** ***<br>
+                    </p>
+                </div><br><br>
+                <div class="habana-ref-item">
+                    <h4 class="habana-ref-name">Ms. Joana Marie Cruz</h4>
+                    <p class="habana-description">
+                        Instructor - BPC<br>
+                        Apalit, Pampanga<br>
+                        +639 ** *** ***<br>
+                    </p>
+                </div>
+            </div><br><br>
+
+            <div class="habana-education">
+                <h3 class="habana-title"><i class="fa-solid fa-graduation-cap" style="color: #2f2f2f;"></i> EDUCATION
+                </h3><br><br>
+                <div class="habana-edu-item">
+                    <p class="habana-item-Pretitle">2024-present</p>
+                    <h4 class="habana-item-title">Associate in Computer Technology</h4>
+                    <p class="habana-item-subtitle">Bulacan Polytechnic Colleges</p>
+                </div><br>
+                <div class="habana-edu-item">
+                    <p class="habana-item-Pretitle">2019-2021</p>
+                    <h4 class="habana-item-title">Senior High (Accountancy in Business and Management)</h4>
+                    <p class="habana-item-subtitle">Bula National High School</p>
+                </div><br>
+                <div class="habana-edu-item">
+                    <p class="habana-item-Pretitle">2014-2019</p>
+                    <h4 class="habana-item-title">Junior High</h4>
+                    <p class="habana-item-subtitle">Balaogan National High School</p>
+                </div><br>
+                <div class="habana-edu-item">
+                    <p class="habana-item-Pretitle">2014-2019</p>
+                    <h4 class="habana-item-title">Elementary</h4>
+                    <p class="habana-item-subtitle">Balaogan Elementary School</p>
+                </div>
+            </div><br><br>
+
+            <div class="habana-awards">
+                <h3 class="habana-title"><i class="fa-solid fa-award" style="color: #2f2f2f;"></i> AWARDS</h3><br>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2020-2021</p>
+                    <h4 class="habana-item-title">With Honors</h4>
+                    <p class="habana-description">Bula National High School</p>
+                </div><br>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2018-2019</p>
+                    <h4 class="habana-item-title">With High Honors</h4>
+                    <p class="habana-description">Balaogan National High School</p>
+                </div><br>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2014-2015</p>
+                    <h4 class="habana-item-title">1st Honorable Mention</h4>
+                    <p class="habana-description">Balaogan Elementary School</p>
+                </div><br>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2017-2019</p>
+                    <h4 class="habana-item-title">Awards in District & Division Essay Writing Contest</h4>
+                    <p class="habana-description">Balaogan National High School (Secondary Category)</p>
+                </div>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2017-2019</p>
+                    <h4 class="habana-item-title">Battle of the Wise (English Category)</h4>
+                    <p class="habana-description">Freedom Sports Complex-San Jose, Pili, Camarines Sur</p>
+                </div>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2019-2020</p>
+                    <h4 class="habana-item-title">Flute Ensemble (Choir)</h4>
+                    <p class="habana-description">Casugad National High School</p>
+                </div>
+                <div class="habana-award-item">
+                    <p class="habana-item-Pretitle">2018-2019</p>
+                    <h4 class="habana-item-title">Flute Ensemble (Choir)</h4>
+                    <p class="habana-description">San Ramon National High School</p>
+                </div>
+            </div><br><br>
+        </div>
+
+        <div class="habana-right-container">
+            <div class="habana-experience">
+                <h3 class="habana-title"><i class="fa-solid fa-briefcase" style="color: #2f2f2f;"></i> EXPERIENCE</h3>
+                <br>
+                <div class="habana-exp-item">
+                    <p class="habana-item-Pretitle">2022-2024</p>
+                    <h4 class="habana-item-subtitle">Algura Residence</h4>
+                    <p class="habana-item-title">Home-based Tutor</p>
+                    <p class="habana-description">Creates a supportive learning environment to help students improve
+                        academic performance and confidence.</p>
+                </div>
+            </div><br><br>
+
+            <div class="habana-seminars">
+                <h3 class="habana-title"><i class="fa-solid fa-chalkboard" style="color: #2f2f2f;"></i> SEMINARS</h3>
+                <br>
+                <div class="habana-seminar-item">
+                    <p class="habana-item-Pretitle">2023</p>
+                    <h4 class="habana-item-title">Engineering Mathemetics and Science Society Seminar</h4>
+                    <p class="habana-description">Camarines Sur Polytechnic Colleges, Auditorium</p>
+                </div><br>
+                <div class="habana-seminar-item">
+                    <p class="habana-item-Pretitle">2018</p>
+                    <h4 class="habana-item-title">3-day YES-O Camp</h4>
+                    <p class="habana-description">Balaogan National High School</p><br>
+                </div><br>
+            </div>
+
+            <div class="habana-interest">
+                <h3 class="habana-title"><i class="fa-solid fa-magnifying-glass" style="color: #2f2f2f;"></i> INTERESTS
+                </h3><br>
+                <div class="habana-interest-item">
+                    <div class="habana-interest-list" style="justify-items: space-around;">
+                        <i class="fas fa-paint-brush"
+                            style="text-align: center; color: #f8f8f8;"></i><span>Design</span>
+                    </div>
+                    <div class="habana-interest-list">
+                        <i class="fa fa-film" style="text-align: center; color: #f8f8f8"></i><span>Netflix</span>
+                    </div>
+                    <div class="habana-interest-list">
+                        <i class="fa-solid fa-plane" style="text-align: center; color: #f8f8f8"></i><span>Travel</span>
+                    </div>
+                    <div class=" habana-interest-list">
+                        <i class="fas fa-utensils" style="text-align: center; color: #f8f8f8"></i><span>Foods</span>
+                    </div>
+                    <div class="habana-interest-list">
+                        <i class="fas fa-book" style="text-align: center; color: #f8f8f8"></i><span>Books</span>
+                    </div>
+                    <div class="habana-interest-list">
+                        <i class="fa-solid fa-compact-disc" style="text-align: center; color: #f8f8f8"></i><span>Taylor
+                            Swift</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="habana-footer-container">
+            <div class="habana-contact">
+                <h3 class="habana-title">CONTACT</h3><br>
+                <div class="habana-contact-info">
+                    <p class="habana-description"><a href="https://maps.app.goo.gl/iaPHrnsgojJD2xCo9" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> Paombong, Bulacan</a></p>
+                    <p class="habana-description"><a href="tel:+639360370294" target="_blank">
+                            <i class="fas fa-phone"></i> +639 360 370 294</a></p>
+                    <p class="habana-description"><a
+                            href="https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com%3Fhl%3Den-US&ec=GBRA8wE"
+                            target="_blank">
+                            <i class="fas fa-envelope"></i> cristinehabana11042002@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="habana-social">
+                <h3 class="habana-title">SOCIALS</h3>
+                <div class="habana-social-items">
+                    <a href="https://www.facebook.com/cj.habana.5" target="_blank"><i class="fab fa-facebook"></i><span>
+                            /cristinehabana</span></a><br>
+                    <a href="https://www.instagram.com/crstnhbn?igsh=bmM0dXlzbHpiNjB2" target="_blank"><i
+                            class="fab fa-instagram"></i><span> /crstnhbn</span></a><br>
+                    <a href="https://t.me/crstnhbn" target="_blank"><i class="fab fa-telegram"></i><span>
+                            /crstnhbn</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
