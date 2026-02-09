@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - My Personal Portfolio</title>
+
+    <style>
+        :root {
+            --pink: #e8899e;
+            --pink-dark: #cc6b84;
+            --white: #ffffff;
+            --gray: #6f6f6f;
+            --brown: #b07a6b;
+            --light: #fff7fa;
+            --chip: #ffe0ea;
+            --shadow: 0 14px 30px rgba(232, 137, 158, 0.22);
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #fff5f7 0%, #ffffff 100%);
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        header {
+            background: #fde4ea;
+            padding: 1.2rem 1rem;
+            border-bottom: 3px dashed #f3a6b8;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.8rem;
+            background: #fff;
+            border-bottom: 1px solid #e6dcdc;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav a {
+            text-decoration: none;
+            background: var(--pink);
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 14px;
+            box-shadow: 2px 2px 0 var(--brown);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--brown);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 #a0694f;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: linear-gradient(180deg, #fff6fa 0%, #ffe9f1 100%);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffd7e5 0%, transparent 60%);
+            filter: blur(2px);
+        }
+
+        section::after {
+            content: "";
+            position: absolute;
+            bottom: -90px;
+            left: -70px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 70%, #ffe5ef 0%, transparent 60%);
+            filter: blur(2px);
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+        }
+
+        section h2 {
+            text-align: center;
+            color: var(--pink);
+            margin-bottom: 40px;
+            margin-top: 30px;
+            font-size: 2rem;
+            font-family: "Segoe Script", "Comic Sans MS", cursive;
+        }
+
+        .message-form-section {
+            margin-top: 0;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .socials-section h3 {
+            text-align: center;
+            color: var(--pink);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-family: "Segoe Script", "Comic Sans MS", cursive;
+        }
+
+        .socials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .social-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 6px 12px rgba(232, 137, 158, 0.15);
+            border: 2px solid #ffe0ea;
+            text-align: center;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(232, 137, 158, 0.25);
+        }
+
+        .social-card a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--pink);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: color .2s ease;
+        }
+
+        .social-card a:hover {
+            color: var(--pink-dark);
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+            color: var(--pink);
+        }
+
+        .message-form-section h3 {
+            text-align: center;
+            color: var(--pink);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-family: "Segoe Script", "Comic Sans MS", cursive;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(232, 137, 158, 0.15);
+            border: 2px solid #ffe0ea;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #a24c63;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ffe0ea;
+            border-radius: 12px;
+            font-family: "Poppins", sans-serif;
+            font-size: 0.95rem;
+            color: #6a5560;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(232, 137, 158, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: #fff;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease;
+            box-shadow: 0 6px 14px rgba(232, 137, 158, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(232, 137, 158, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #db7093 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="font-family: 'Segoe Script', 'Comic Sans MS', cursive;">crstnhbn</h1>
+        <p>Aspiring IT Professional ✧ Creative • Curious</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <section>
+        <div class="page">
+            <div class="content">
+                <div class="contact-wrapper">
+                    <div class="message-form-section">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">✧ Leave Me a Note ✧</h3>
+                        <div class="form-container" style="padding: 1.2rem;">
+                            <form action="https://formspree.io/f/xwpkvvzd" method="POST">
+                                <div class="form-group" style="margin-bottom: 1rem;">
+                                    <label for="name" style="font-size: 0.85rem; margin-bottom: 0.3rem;">Your
+                                        Name</label>
+                                    <input type="text" id="name" name="name" required placeholder="What's your name?"
+                                        style="padding: 0.6rem; font-size: 0.9rem;">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 1rem;">
+                                    <label for="email" style="font-size: 0.85rem; margin-bottom: 0.3rem;">Your
+                                        Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        placeholder="So I can reply back ✧" style="padding: 0.6rem; font-size: 0.9rem;">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 1rem;">
+                                    <label for="message" style="font-size: 0.85rem; margin-bottom: 0.3rem;">Your
+                                        Message</label>
+                                    <textarea id="message" name="message" required placeholder="Share your thoughts..."
+                                        style="padding: 0.6rem; font-size: 0.9rem; min-height: 100px;"></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn"
+                                    style="padding: 0.7rem; font-size: 0.9rem;">Send
+                                    Message 💕</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="socials-section">
+                        <h3>✧ Follow Me ✧</h3>
+                        <div class="socials-grid">
+                            <div class="social-card">
+                                <a href="tel:+639915484774"><span class="social-icon">📞</span>+63 991 5484 774</a>
+                            </div>
+                            <div class="social-card">
+                                <a href="#" style="pointer-events: none;"><span class="social-icon">📍</span>Paombong,
+                                    Bulacan</a>
+                            </div>
+                            <div class="social-card">
+                                <a href="mailto:cristinehabana11042002@gmail.com"><span
+                                        class="social-icon">📧</span>cristinehabana11042002@gmail.com</a>
+                            </div>
+                            <div class="social-card">
+                                <a href="https://github.com/your-username" target="_blank"
+                                    rel="noopener noreferrer"><span class="social-icon">💻</span>Github</a>
+                            </div>
+                            <div class="social-card">
+                                <a href="https://www.facebook.com/your-username" target="_blank"
+                                    rel="noopener noreferrer"><span class="social-icon">📘</span>Facebook</a>
+                            </div>
+                            <div class="social-card">
+                                <a href="https://www.instagram.com/your-username" target="_blank"
+                                    rel="noopener noreferrer"><span class="social-icon">✨</span>Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Cristine 🎀</p>
+    </footer>
+
+</body>
+
+</html>
